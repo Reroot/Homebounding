@@ -1,13 +1,25 @@
 import express from 'express';
+import { listings } from './listings';
+import bodyParser from "body-parser"
+
 //const express = require('express');
 const app = express();
 const port = 9000;
+app.use(bodyParser.json);//tells the server to formate to josn with middleware
+app.get("/", (req, res) => res.send(JSON.stringify(listings)));
+app.get("/hello1", (req, res) => res.send("Hello World 1!" + port));
 
-app.get("/", (req, res) => res.send("Hello World!"));
+app.post("/delete-listing", (req, res)=> {
+    const id: string = req.body.id;
+});
+
 
 app.listen(port);
+
 console.log(`[app]: http://localhost:${port}`);
 console.log("log");
+
+
 const one: number = 1;//now will crash if typpes are wrong
 const two: number = 2;
 const str1: string = "imatype";
