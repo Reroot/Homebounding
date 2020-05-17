@@ -22,7 +22,6 @@ app.post("/delete-listing/:id", (req, res) => {
 
 
 app.listen(port);
-
 console.log(`[app]: http://localhost:${port}`);
 console.log("log");
 
