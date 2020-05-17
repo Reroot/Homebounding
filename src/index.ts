@@ -5,12 +5,19 @@ import bodyParser from "body-parser"
 //const express = require('express');
 const app = express();
 const port = 9000;
-app.use(bodyParser.json);//tells the server to formate to josn with middleware
-app.get("/", (req, res) => res.send(JSON.stringify(listings)));
+app.use(bodyParser.json());//tells the server to formate to josn with middleware
+
+app.get("/", (req, res) => { return res.send(listings)});
 app.get("/hello1", (req, res) => res.send("Hello World 1!" + port));
 
-app.post("/delete-listing", (req, res)=> {
+app.post("/delete-listing/:id", (req, res) => {
     const id: string = req.body.id;
+    for(let i: number = 0;i<listings.length;i++) {
+        if(listings[i].id === id) {
+            return res.send(listings.splice(i, 1));
+        }
+    }
+    return res.send("id not found");
 });
 
 
