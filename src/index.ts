@@ -1,5 +1,6 @@
 import express from 'express';
 import { listings } from './listings';
+import { labdata } from './labdata';
 import bodyParser from "body-parser"
 
 //const express = require('express');
@@ -8,8 +9,8 @@ const port = 9000;
 app.use(bodyParser.json());//tells the server to formate to josn with middleware
 
 app.get("/", (req, res) => { return res.send(listings)});
-app.get("/hello1", (req, res) => res.send("Hello World 1!" + port));
-
+app.get("/hello1", (req, res) => {res.send("Hello World 1!" + port)});
+app.get("/labs", (req, res)=> {res.send(labdata)});
 app.post("/delete-listing/:id", (req, res) => {
     const id: string = req.body.id;
     for(let i: number = 0;i<listings.length;i++) {
