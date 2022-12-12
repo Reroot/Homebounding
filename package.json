@@ -5,7 +5,7 @@
     "@types/mongoose": "^5.5.32",
     "apollo-server-express": "^2.9.13",
     "body-parser": "^1.19.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "graphql": "^14.5.8",
     "lodash.merge": "^4.6.2",
     "mongodb": "^3.3.5",
